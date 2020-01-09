@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Todo } from 'src/todo.reducer';
 import { Store, select } from '@ngrx/store';
-import { addTodo, toggleTodo } from 'src/todo.actions';
+import { addTodo, toggleTodo, deleteTodo } from 'src/todo.actions';
 
 
 @Component({
@@ -27,5 +27,9 @@ export class TodoListComponent implements OnInit {
 
   toggleTodo(index) {
     this.store.dispatch(toggleTodo({index}))
+  }
+
+  deleteTodo(index) {
+    this.store.dispatch(deleteTodo({index}))
   }
 }
