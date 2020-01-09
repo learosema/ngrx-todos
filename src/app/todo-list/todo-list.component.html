@@ -1,0 +1,9 @@
+<h1>Todo List</h1>
+<ul>
+  <li *ngFor="let todo of (todos$ | async); let i = index">
+    <input [id]="'todo_' + i" type="checkbox" [checked]="todo.done" (click)="toggleTodo(i)">
+    <label [for]="'todo_' + i">{{ todo.text }}</label>
+  </li>
+</ul>
+
+<button (click)="addTodo()">Add Todo</button>
