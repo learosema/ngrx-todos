@@ -5,13 +5,13 @@ import { addTodo, deleteTodo, toggleTodo, editTodo } from './todo.actions';
 export class Todo {
   constructor(
     public text: string = '',
-    public done: boolean = false) {}
+    public done: boolean = false) { }
 }
 
 export const initialState: Todo[] = [];
 
 export const todoReducer = createReducer(
-  initialState, 
+  initialState,
   on(addTodo, (state, {text, done}) => [...state, new Todo(text, done)]),
   on(deleteTodo, (state, { index }) => state.filter((_, idx) => index !== idx)),
   on(editTodo, (state, {index, text}) => [
