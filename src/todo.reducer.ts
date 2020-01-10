@@ -14,12 +14,12 @@ export const todoReducer = createReducer(
   on(addTodo, (state, {text, done}) => [...state, {text, done}]),
   on(deleteTodo, (state, { index }) => state.filter((_, idx) => index !== idx)),
   on(editTodo, (state, {index, text}) => [
-    ...state.slice(0, index - 1),
+    ...state.slice(0, index),
     {text, done: state[index].done},
     ...state.slice(index + 1)
   ]),
   on(toggleTodo, (state, {index}) => [
-    ...state.slice(0, index - 1),
+    ...state.slice(0, index),
     {text: state[index].text, done: !state[index].done} as Todo,
     ...state.slice(index + 1)
   ])
