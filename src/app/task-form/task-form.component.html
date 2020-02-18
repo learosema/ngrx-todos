@@ -1,10 +1,10 @@
 <fieldset>
 
   <legend>add todo</legend>
-  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="taskForm" (submit)="onSubmit($event)">
     <div class="form-row">
       <label for="task">Task</label>
-      <input id="task" type="text" formControlName="task" required>
+      <input id="task" type="text" formControlName="task" required [class.invalid]="taskForm.controls.task.invalid && taskForm.controls.task.touched">
     </div>
 
     <button type="submit"> Submit </button>

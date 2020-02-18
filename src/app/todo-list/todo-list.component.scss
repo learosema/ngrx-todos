@@ -47,6 +47,10 @@ ul {
       font-weight: bold;
       margin-right: 8px;
 
+      &:active {
+        opacity: 0.3;
+      }
+
       &:checked {
         background: #777;
         color: #fff;
@@ -75,6 +79,10 @@ ul {
         font-weight: bold;
         margin-right: 4px;
         content: '×'
+      }
+
+      &:active {
+        opacity: 0.3;
       }
     }
   }

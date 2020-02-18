@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { addTodo } from 'src/todo.actions';
 import { Observable } from 'rxjs';
 import { Todo } from 'src/todo.reducer';
@@ -18,15 +18,18 @@ export class TaskFormComponent {
   }
 
   taskForm = new FormGroup({
-    task: new FormControl('')
+    task: new FormControl('', Validators.required)
   });
 
   addTodo() {
-    const text = this.taskForm.controls.task.value;
-    this.store.dispatch(addTodo({text, done: false}));
+    if (! this.taskForm.invalid) {
+      const text = this.taskForm.controls.task.value;
+      this.store.dispatch(addTodo({text, done: false}));
+    }
   }
 
-  onSubmit() {
+  onSubmit(e) {
+    e.preventDefault();
     this.addTodo();
   }
 

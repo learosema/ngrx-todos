@@ -50,6 +50,11 @@ fieldset {
       font-family: sans-serif;
       padding: 8px;
       margin: 2px 0;
+      transition: border-color 250ms ease;
+
+      &.invalid {
+        border-color: red;
+      }
     }
 
   }
