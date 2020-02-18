@@ -1,10 +1,7 @@
-<h1>Todo List</h1>
 <ul>
-  <li *ngFor="let todo of (todos$ | async); let i = index">
+  <li *ngFor="let todo of (todos$ | async); let i = index" [class.done]="todo.done">
     <input [id]="'todo_' + i" type="checkbox" [checked]="todo.done" (click)="toggleTodo(i)">
     <label [for]="'todo_' + i">{{ todo.text }}</label>
-    <button (click)="deleteTodo(i)"> delete </button>
+    <button (click)="deleteTodo(i)"><span>delete</span></button>
   </li>
 </ul>
-
-<button (click)="addTodo()"> Add Todo </button>

@@ -1,0 +1,13 @@
+<fieldset>
+
+  <legend>add todo</legend>
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <label for="task">Task</label>
+      <input id="task" type="text" formControlName="task" required>
+    </div>
+
+    <button type="submit"> Submit </button>
+
+  </form>
+</fieldset>

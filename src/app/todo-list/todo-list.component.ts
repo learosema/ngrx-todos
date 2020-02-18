@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Todo } from 'src/todo.reducer';
 import { Store, select } from '@ngrx/store';
 import { addTodo, toggleTodo, deleteTodo } from 'src/todo.actions';
-
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-list',
@@ -21,15 +21,11 @@ export class TodoListComponent implements OnInit {
   ngOnInit() {
   }
 
-  addTodo() {
-    this.store.dispatch(addTodo({text: 'todo text', done: false}))
-  }
-
   toggleTodo(index) {
-    this.store.dispatch(toggleTodo({index}))
+    this.store.dispatch(toggleTodo({index}));
   }
 
   deleteTodo(index) {
-    this.store.dispatch(deleteTodo({index}))
+    this.store.dispatch(deleteTodo({index}));
   }
 }
